@@ -1,10 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"tasks/task2"
-)
+import "tasks/task1"
+
+type Circle struct{}
 
 func main() {
-	fmt.Println(task2.WordFrequency("welcome here"))
+	task1.GradeCalculator()
 }

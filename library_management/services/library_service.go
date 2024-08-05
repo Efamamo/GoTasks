@@ -37,15 +37,9 @@ func (l *Library) AddBook(book models.Book) {
 	l.books[book.ID] = &book
 }
 
-func (l *Library) RemoveBook(bookID int) bool {
-	_, exists := l.books[bookID]
-	if !exists {
-		return false
-	} else if l.books[bookID].Status == "Borrowed" {
-		return false
-	}
+func (l *Library) RemoveBook(bookID int) {
 	delete(l.books, bookID)
-	return true
+
 }
 
 func (l *Library) BorrowBook(bookID int, memberID int) error {
@@ -64,7 +58,7 @@ func (l *Library) BorrowBook(bookID int, memberID int) error {
 
 	book.Status = "Borrowed"
 	member.BorrowedBooks = append(member.BorrowedBooks, *book)
-	fmt.Println(member)
+	fmt.Println(member.BorrowedBooks)
 
 	return nil
 }
@@ -91,9 +85,8 @@ func (l *Library) ReturnBook(bookID int, memberID int) error {
 	}
 
 	member.BorrowedBooks = updatedBorrowedBooks
-	l.members[memberID] = member
+
 	book.Status = "Available"
-	l.books[bookID] = book
 
 	return nil
 }

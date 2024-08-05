@@ -1,4 +1,4 @@
-package grade
+package task1
 
 import (
 	"bufio"
@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func gradeCalculator() {
+func GradeCalculator() {
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Print("Enter Your Name: ")
 	scanner.Scan()

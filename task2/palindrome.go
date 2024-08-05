@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func isPalindrome(s string) bool {
+func IsPalindrome(s string) bool {
 	s = strings.ToLower(s)
 	re := regexp.MustCompile(`[^\w]`)
 	word := re.ReplaceAllString(s, "")
