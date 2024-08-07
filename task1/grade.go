@@ -26,7 +26,10 @@ func GradeCalculator() {
 		name := scanner.Text()
 		fmt.Printf("Enter score of %v: ", name)
 		scanner.Scan()
-		score, _ := strconv.ParseFloat(scanner.Text(), 64)
+		score, err := strconv.ParseFloat(scanner.Text(), 64)
+		if err != nil {
+			fmt.Println(err)
+		}
 		subject := scanner.Text()
 		strings.Split(" ", subject)
 
@@ -44,6 +47,10 @@ func GradeCalculator() {
 	}
 
 	average := sum / float64(amount)
-	fmt.Printf("Your Average Grade is %v/100\n", average)
+	if amount == 0 {
+		fmt.Println("Your Dont have any Subjects")
+	} else {
+		fmt.Printf("Your Average Grade is %v/100\n", average)
+	}
 	fmt.Println("----------------------------")
 }
