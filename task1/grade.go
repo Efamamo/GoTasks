@@ -16,11 +16,10 @@ func GradeCalculator() {
 
 	fmt.Print("Enter Number of Subjects: ")
 	scanner.Scan()
-	amount, _ := strconv.ParseInt(scanner.Text(), 10, 64)
+	amount, _ := strconv.Atoi(scanner.Text())
 
 	subjects := map[string]float64{}
-	var i int64
-	for i < amount {
+	for i := 0; i < amount; i++ {
 
 		fmt.Print("Enter name of the subject ", i+1, ": ")
 		scanner.Scan()
@@ -32,8 +31,6 @@ func GradeCalculator() {
 		strings.Split(" ", subject)
 
 		subjects[name] = score
-
-		i++
 
 	}
 
