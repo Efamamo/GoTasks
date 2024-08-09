@@ -10,8 +10,7 @@ func WordFrequency(input string) map[string]int {
 	input = strings.ToLower(input)
 
 	// Remove punctuation using regex
-	re := regexp.MustCompile(`[^\w\s]`)
-	cleanedInput := re.ReplaceAllString(input, "")
+	cleanedInput := regexp.MustCompile(`[^a-zA-Z0-9]+`).ReplaceAllString(input, " ")
 
 	// Split the string into words
 	words := strings.Fields(cleanedInput)

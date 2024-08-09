@@ -7,8 +7,7 @@ import (
 
 func IsPalindrome(s string) bool {
 	s = strings.ToLower(s)
-	re := regexp.MustCompile(`[^\w]`)
-	word := re.ReplaceAllString(s, "")
+	word := regexp.MustCompile(`[^a-zA-Z0-9]+`).ReplaceAllString(s, "")
 
 	i, j := 0, len(word)-1
 	for i < j {

@@ -1,9 +1,12 @@
 package main
 
-import "tasks/task1"
+import (
+	"fmt"
+	"tasks/task2"
+)
 
 type Circle struct{}
 
 func main() {
-	task1.GradeCalculator()
+	fmt.Println(task2.IsPalindrome("han_ ah"))
 }
